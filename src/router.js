@@ -1,7 +1,15 @@
 const express = require("express");
-const pedidosControllers = require("./controllers/PedidosControllers"); 
+const ClientControllers = require("./controllers/ClientControllers"); 
 const router = express.Router();
 
-router.get("/client", pedidosControllers.GetAllClients);
+router.get("/client", ClientControllers.GetAllClients);
+
+router.get("/client/:id", ClientControllers.GetClientById);
+
+router.post("/client/create", ClientControllers.CreateClient);
+
+router.put("/client/update/:id", ClientControllers.UpdateClient);
+
+
 
 module.exports = router;
