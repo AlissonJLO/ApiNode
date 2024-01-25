@@ -29,9 +29,18 @@ const UpdateClient = async (id, nome, endereco, telefone) => {
   return client;
 };
 
+const DeleteClient = async (id) => {
+  const [client] = await connection.execute(
+    `delete from cliente where id = ?`,
+    [id]
+  );
+  return client;
+};
+
 module.exports = {
   GetAllClients,
   GetClientById,
   CreateClient,
   UpdateClient,
+  DeleteClient,
 };
